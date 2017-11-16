@@ -2,160 +2,152 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Crystal collector</title>
-  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-  <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
-  
+	<meta charset="UTF-8">
+	<title>Crystal collector</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+
 </head>
- <body>
-<div class="head">
+
+<body>
+	<div class="head">
 		<h1>Infinity Stone Collector</h1>
 	</div>
 	<div class="instruction">
-		<h2>Rules:</h2>
+		<h2 class="rules">How It Works:</h2>
 		<ol>
 			<li>Click a stone to increase the total score.</li>
-			<li>There are four stones to choose from including:</li>
-			<ul>
-				<li id="blue">blue</li>
-				<li id="purple">purple</li>
-				<li id="red">red</li>
-				<li id="yellow">yellow</li>
-			</ul>
+			<li>There are four stones to choose from including: Blue, Purple, Red, Yellow.</li>
 			<li>Each stone is unique and will provide a number back unique to it when clicked.</li>
-			<li>If you succefully match the number to guess you win!</li>
-			<li>Be aware if the number you've guessed is above the number to get you will lose.</li>
+			<li>If you succefully match the number to match you win!</li>
+			<li>Be aware if the number you've guessed is above the number to match you will lose.</li>
 		</ol>
 
 	</div>
+	
+<div class="container">
+	<h2 class="numberToGet">
+		Match this:
+			<span id="start"></span>
+		</h2>
+	</div>
 
-	<div class="numberToGet">
-		<h2>Number To Get:
-			<span id= "start"></span>
-		</h2>
-	</div>
-	<div class="winsAndLosses">
+	<div class="winsAndLosses" >
 		<h2>Wins:
-			<span id= "Wins"></span>
-			
-			Losses: 
-			<span id= "Losses"></span>
+			<span id="Wins"></span>
+<br>
+			Losses:
+			<span id="Losses"></span>
 		</h2>
 	</div>
+	
 	<div class="userTotal">
-		<h2>Your total score is:
+		<h2>Your total is:
 			<span id="final"></span>
 		</h2>
-	</div> 
+	</div>
+</div>
 
 	<div class="stones">
 		<img src="assets/images/blue.jpg" class=stoneImage id="blue1" alt="bluegem">
 		<img src="assets/images/purple.jpg" class=stoneImage id="purple2" alt="purplegem">
-		<img src="assets/images/red.jpg" class=stoneImage id= "red3" alt="redgem">
-		<img src="assets/images/yellow.jpg" class=stoneImage id= "yellow4" alt="yellowgem">
+		<img src="assets/images/red.jpg" class=stoneImage id="red3" alt="redgem">
+		<img src="assets/images/yellow.jpg" class=stoneImage id="yellow4" alt="yellowgem">
 	</div>
-	
-<script type="text/javascript" src="assets/javascript/game.js"></script>>
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
-<script type="text/javascript">
 
-$( document ).ready(function(){
-	var start=Math.floor(Math.random()*75+25)
-	// Selects a random number to be shown at the start of the game
-	
-	$('#start').text(start);
-	var num1= Math.floor(Math.random()*9+1)
-	var num2= Math.floor(Math.random()*9+1)
-	var num3= Math.floor(Math.random()*9+1)
-	var num4= Math.floor(Math.random()*9+1)
-    //counter
-    var userTotal= 0; 
-    var wins= 0;
-    var losses = 0;
-    
+	<script type="text/javascript" src="assets/javascript/game.js"></script>>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			var start = Math.floor(Math.random() * 101 + 19)
+			// Selects a random number to be shown at the start of the game
 
-  $('#Wins').text(wins);
-  $('#Losses').text(losses);
-  
-  //reset
-  function reset(){
-        start=Math.floor(Math.random()*101+19);
-        console.log(start)
-        $('#start').text(start);
-		num1= Math.floor(Math.random()*11+1);
-		num2= Math.floor(Math.random()*11+1);
-		num3= Math.floor(Math.random()*11+1);
-		num4= Math.floor(Math.random()*11+1);
-        userTotal= 0;
-        $('#final').text(userTotal);
-        } 
-  //adds the wins to the total wins
-  function yay(){
-  alert("Congratulations!");
-    wins++; 
-    $('#Wins').text(wins);
-    reset();
-  }
-  //addes the losses to total losses
-  function loser(){
-  alert ("Try again!");
-    losses++;
-    $('#Losses').text(losses);
-    reset()
-  }
-  //stone buttons
-  $('#blue1').on ('click', function(){
-      userTotal = userTotal + num1;
-      console.log("New userTotal= " + userTotal);
-      $('#final').text(userTotal); 
-            //detect win/loss
-          if (userTotal == start){
-            yay();
-          }
-          else if ( userTotal > start){
-            loser();
-          }   
-    });
-    $('#purple2').on ('click', function(){
-      userTotal = userTotal + num2;
-      console.log("New userTotal= " + userTotal);
-      $('#final').text(userTotal); 
-          if (userTotal == start){
-            yay();
-          }
-          else if ( userTotal > start){
-            loser();
-          } 
-    });  
-    $('#red3').on ('click', function(){
-      userTotal = userTotal + num3;
-      console.log("New userTotal= " + userTotal);
-	  $('#final').text(userTotal);
-	  
-            if (userTotal == start){
-            yay();
-          }
-          else if ( userTotal > start){
-            loser();
-          } 
-    });
-    $('#yellow4').on ('click', function(){
-      userTotal = userTotal + num4;
-      console.log("New userTotal= " + userTotal);
-      $('#final').text(userTotal); 
-        
-            if (userTotal == start){
-            yay();
-          }
-          else if ( userTotal > Rstart){
-            loser();
-          }
-    });   
-  }); 
+			$('#start').text(start);
+			var num1 = Math.floor(Math.random() * 11 + 1)
+			var num2 = Math.floor(Math.random() * 11 + 1)
+			var num3 = Math.floor(Math.random() * 11 + 1)
+			var num4 = Math.floor(Math.random() * 11 + 1)
+			//counter
+			var userTotal = 0;
+			var wins = 0;
+			var losses = 0;
 
-	
-</script>
+
+			$('#Wins').text(wins);
+			$('#Losses').text(losses);
+
+			//reset
+			function reset() {
+				start = Math.floor(Math.random() * 101 + 19);
+				console.log(start)
+				$('#start').text(start);
+				num1 = Math.floor(Math.random() * 11 + 1);
+				num2 = Math.floor(Math.random() * 11 + 1);
+				num3 = Math.floor(Math.random() * 11 + 1);
+				num4 = Math.floor(Math.random() * 11 + 1);
+				userTotal = 0;
+				$('#final').text(userTotal);
+			}
+			//adds the wins to the total wins
+			function yay() {
+				alert("Congratulations!");
+				wins++;
+				$('#Wins').text(wins);
+				reset();
+			}
+			//addes the losses to total losses
+			function loser() {
+				alert("Try again!");
+				losses++;
+				$('#Losses').text(losses);
+				reset()
+			}
+			//stone buttons
+			$('#blue1').on('click', function () {
+				userTotal = userTotal + num1;
+				console.log("New userTotal= " + userTotal);
+				$('#final').text(userTotal);
+				//detect win/loss
+				if (userTotal == start) {
+					yay();
+				} else if (userTotal > start) {
+					loser();
+				}
+			});
+			$('#purple2').on('click', function () {
+				userTotal = userTotal + num2;
+				console.log("New userTotal= " + userTotal);
+				$('#final').text(userTotal);
+				if (userTotal == start) {
+					yay();
+				} else if (userTotal > start) {
+					loser();
+				}
+			});
+			$('#red3').on('click', function () {
+				userTotal = userTotal + num3;
+				console.log("New userTotal= " + userTotal);
+				$('#final').text(userTotal);
+
+				if (userTotal == start) {
+					yay();
+				} else if (userTotal > start) {
+					loser();
+				}
+			});
+			$('#yellow4').on('click', function () {
+				userTotal = userTotal + num4;
+				console.log("New userTotal= " + userTotal);
+				$('#final').text(userTotal);
+
+				if (userTotal == start) {
+					yay();
+				} else if (userTotal > Rstart) {
+					loser();
+				}
+			});
+		});
+	</script>
 </body>
-</html>
 
+</html>
