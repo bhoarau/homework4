@@ -1,16 +1,17 @@
 body{
-	background-image: url("../images/background.jpg")
+    background-image: url("../images/background1.gif")
 }
 div{
-	background-color: white;
+    background-image: url("../images/space1.gif");
 	margin: 10px;
-	width: 50%
+	width: 32%
 }
 div{
 	border: solid 2px white;
 	padding: 15px;
 }
 h1, h2, span{
+    background-color: white;
 	font-weight: bold;
 	text-align: center;
 }
@@ -20,7 +21,8 @@ h1{
 h2{
     font-size: 30px;
 }
-li{
+ol{
+    background-color: white;
     font-size: 20px;
 }
 div.header, div.gems{
@@ -29,22 +31,19 @@ div.header, div.gems{
 div.header, div.instructions{
 	width: 50%;
 }
-.numberToMatch, .winsAndLosses{
+.numberToMatch, .winsAndLosses .userTotal{
 	float: left;
 	width: 50%;
 	height: 60px;
 }
-.userTotal{
-	width: 50%;
-	height: 60px;
-}
+
 .stones{
-    clear: both;
+    width: 32%
 }
 .stoneImage{
 	height: 60px;
     margin: 10px;
-    padding-left: 80px;
+    padding-left: 120px;
 }
 #blue{
 	color: #3092c7;

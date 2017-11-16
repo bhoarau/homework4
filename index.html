@@ -9,7 +9,6 @@
   
 </head>
  <body>
-
 <div class="head">
 		<h1>Infinity Stone Collector</h1>
 	</div>
@@ -49,6 +48,7 @@
 			<span id="final"></span>
 		</h2>
 	</div> 
+
 	<div class="stones">
 		<img src="assets/images/blue.jpg" class=stoneImage id="blue1" alt="bluegem">
 		<img src="assets/images/purple.jpg" class=stoneImage id="purple2" alt="purplegem">
@@ -61,16 +61,14 @@
 <script type="text/javascript">
 
 $( document ).ready(function(){
-    var start=53;
-    // Number should be should be posted as 53
-    //
-    $('#start').text(start);
-    //number variables
-    var num1= 10;
-    var num2= 5;
-    var num3= 3;
-    var num4= 7;
- 
+	var start=Math.floor(Math.random()*75+25)
+	// Selects a random number to be shown at the start of the game
+	
+	$('#start').text(start);
+	var num1= Math.floor(Math.random()*9+1)
+	var num2= Math.floor(Math.random()*9+1)
+	var num3= Math.floor(Math.random()*9+1)
+	var num4= Math.floor(Math.random()*9+1)
     //counter
     var userTotal= 0; 
     var wins= 0;
@@ -82,13 +80,13 @@ $( document ).ready(function(){
   
   //reset
   function reset(){
-        start=53;
+        start=Math.floor(Math.random()*101+19);
         console.log(start)
         $('#start').text(start);
-        num1= 10;
-        num2= 5;
-        num3= 3;
-        num4= 7;
+		num1= Math.floor(Math.random()*11+1);
+		num2= Math.floor(Math.random()*11+1);
+		num3= Math.floor(Math.random()*11+1);
+		num4= Math.floor(Math.random()*11+1);
         userTotal= 0;
         $('#final').text(userTotal);
         } 
