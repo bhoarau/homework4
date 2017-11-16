@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Crystal collector</title>
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+  
+</head>
+ <body>
+
+<div class="head">
+		<h1>Infinity Stone Collector</h1>
+	</div>
+	<div class="instruction">
+		<h2>Rules:</h2>
+		<ol>
+			<li>Click a stone to increase the total score.</li>
+			<li>There are four stones to choose from including:</li>
+			<ul>
+				<li id="blue">blue</li>
+				<li id="purple">purple</li>
+				<li id="red">red</li>
+				<li id="yellow">yellow</li>
+			</ul>
+			<li>Each stone is unique and will provide a number back unique to it when clicked.</li>
+			<li>If you succefully match the number to guess you win!</li>
+			<li>Be aware if the number you've guessed is above the number to get you will lose.</li>
+		</ol>
+
+	</div>
+
+	<div class="numberToGet">
+		<h2>Number To Get:
+			<span id= "start"></span>
+		</h2>
+	</div>
+	<div class="winsAndLosses">
+		<h2>Wins:
+			<span id= "Wins"></span>
+			
+			Losses: 
+			<span id= "Losses"></span>
+		</h2>
+	</div>
+	<div class="userTotal">
+		<h2>Your total score is:
+			<span id="final"></span>
+		</h2>
+	</div> 
+	<div class="stones">
+		<img src="assets/images/blue.jpg" class=stoneImage id="blue1" alt="bluegem">
+		<img src="assets/images/purple.jpg" class=stoneImage id="purple2" alt="purplegem">
+		<img src="assets/images/red.jpg" class=stoneImage id= "red3" alt="redgem">
+		<img src="assets/images/yellow.jpg" class=stoneImage id= "yellow4" alt="yellowgem">
+	</div>
+	
+<script type="text/javascript" src="assets/javascript/game.js"></script>>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+<script type="text/javascript">
+
+$( document ).ready(function(){
+    var start=53;
+    // Number should be should be posted as 53
+    //
+    $('#start').text(start);
+    //number variables
+    var num1= 10;
+    var num2= 5;
+    var num3= 3;
+    var num4= 7;
+ 
+    //counter
+    var userTotal= 0; 
+    var wins= 0;
+    var losses = 0;
+    
+
+  $('#Wins').text(wins);
+  $('#Losses').text(losses);
+  
+  //reset
+  function reset(){
+        start=53;
+        console.log(start)
+        $('#start').text(start);
+        num1= 10;
+        num2= 5;
+        num3= 3;
+        num4= 7;
+        userTotal= 0;
+        $('#final').text(userTotal);
+        } 
+  //adds the wins to the total wins
+  function yay(){
+  alert("Congratulations!");
+    wins++; 
+    $('#Wins').text(wins);
+    reset();
+  }
+  //addes the losses to total losses
+  function loser(){
+  alert ("Try again!");
+    losses++;
+    $('#Losses').text(losses);
+    reset()
+  }
+  //stone buttons
+  $('#blue1').on ('click', function(){
+      userTotal = userTotal + num1;
+      console.log("New userTotal= " + userTotal);
+      $('#final').text(userTotal); 
+            //detect win/loss
+          if (userTotal == start){
+            yay();
+          }
+          else if ( userTotal > start){
+            loser();
+          }   
+    });
+    $('#purple2').on ('click', function(){
+      userTotal = userTotal + num2;
+      console.log("New userTotal= " + userTotal);
+      $('#final').text(userTotal); 
+          if (userTotal == start){
+            yay();
+          }
+          else if ( userTotal > start){
+            loser();
+          } 
+    });  
+    $('#red3').on ('click', function(){
+      userTotal = userTotal + num3;
+      console.log("New userTotal= " + userTotal);
+	  $('#final').text(userTotal);
+	  
+            if (userTotal == start){
+            yay();
+          }
+          else if ( userTotal > start){
+            loser();
+          } 
+    });
+    $('#yellow4').on ('click', function(){
+      userTotal = userTotal + num4;
+      console.log("New userTotal= " + userTotal);
+      $('#final').text(userTotal); 
+        
+            if (userTotal == start){
+            yay();
+          }
+          else if ( userTotal > Rstart){
+            loser();
+          }
+    });   
+  }); 
+
+	
+</script>
+</body>
+</html>
+

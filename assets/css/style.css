@@ -1,0 +1,60 @@
+body{
+	background-image: url("../images/background.jpg")
+}
+div{
+	background-color: white;
+	margin: 10px;
+	width: 50%
+}
+div{
+	border: solid 2px white;
+	padding: 15px;
+}
+h1, h2, span{
+	font-weight: bold;
+	text-align: center;
+}
+h1{
+	font-size: 40px;
+}
+h2{
+    font-size: 30px;
+}
+li{
+    font-size: 20px;
+}
+div.header, div.gems{
+	background-color: white;
+}
+div.header, div.instructions{
+	width: 50%;
+}
+.numberToMatch, .winsAndLosses{
+	float: left;
+	width: 50%;
+	height: 60px;
+}
+.userTotal{
+	width: 50%;
+	height: 60px;
+}
+.stones{
+    clear: both;
+}
+.stoneImage{
+	height: 60px;
+    margin: 10px;
+    padding-left: 80px;
+}
+#blue{
+	color: #3092c7;
+}
+#purple{
+	color: purple;
+}
+#red{
+	color: #ec4b5f;
+}
+#yellow{
+	color: #ffc225;
+}
